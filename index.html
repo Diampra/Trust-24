@@ -27,6 +27,32 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="images/wheelchair.png">
+    <style>
+  .back-top-btn 
+  {
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  /* background-color: var(--eerie-black); */
+  color: white;
+  padding: 12px;
+  /* border-radius: 50%; */
+  /* box-shadow: gray; */
+  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
+  transition: ease .5s;
+}
+
+.back-top-btn.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-10px);
+}
+
+.back-top-btn:is(:hover, :focus) { opacity: 0.9; }
+
+    </style>
   </head>
   <body>
     
@@ -494,6 +520,12 @@
           </div>
       </div> 
       <!-- Video Modal End -->
+      <a href="" aria-label="back to top" data-back-top-btn class="back-top-btn">
+        <div class="donate-button">
+          <button class="btn btn-custom" style="width: 150px;">Donate</button>
+        </div>
+        <!-- <ion-icon name="chevron-up" aria-hidden="true"></ion-icon> -->
+      </a>
 
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
@@ -563,9 +595,9 @@
             </div>
           </div>
         </div>
+        <hr style="height:1px;border-width:0;color:white;background-color:white">
         <div class="row">
           <div class="col-md-12 text-center">
-
             <p>
               Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by Windorse
             </p>
@@ -597,6 +629,23 @@
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
   <!-- <script src="js/google-map.js"></script> -->
   <script src="js/main.js"></script>
+  <script>
     
+// const header = document.querySelector("[data-header]");
+const backTopBtn = document.querySelector("[data-back-top-btn]");
+
+window.addEventListener("scroll", function () {
+
+  if (window.scrollY > 500) {
+    // header.classList.add("active");
+    backTopBtn.classList.add("active");
+  } else 
+
+  {
+    // header.classList.remove("active");
+    backTopBtn.classList.remove("active");
+  }
+});
+  </script>  
   </body>
 </html>
